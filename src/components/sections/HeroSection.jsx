@@ -1,0 +1,127 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Tile from '../Tile';
+import Divider from '../Divider';
+import BackdropPhoto from '../BackdropPhoto';
+
+/**
+ * Editorial-cover hero — fully responsive.
+ *
+ * Layout:
+ *  - Photo region : ~ top half  → empty chapel image dissolved into ivory
+ *  - Type region  : ~ bottom half → "Save the Date" lockup
+ *
+ * Sized with 100svh (small viewport, accounts for mobile browser chrome) and
+ * clamped both above and below so it looks balanced on phones, tablets, and laptops.
+ */
+export default function HeroSection() {
+  const w = useSelector(s => s.wedding);
+
+  return (
+    <Tile
+      delay={0.1}
+      className="
+        -mt-12 sm:-mt-14 -mx-5 sm:-mx-8
+        relative
+        h-[100svh] min-h-[560px] max-h-[920px]
+      "
+    >
+      {/* Empty-chapel photo backdrop */}
+      <BackdropPhoto mode="hero" src={w.heroBackdropSrc} />
+
+      {/* Two-row stack: type lives in the lower half, breathing room above + below */}
+      <div className="absolute inset-0 grid grid-rows-[55%_45%] z-10">
+        {/* Spacer row (photo lives behind it, no content) */}
+        <div />
+
+        {/* Typography row */}
+        <div className="flex flex-col items-center justify-center px-5 sm:px-8 text-center">
+          <p
+            className="font-sans font-medium uppercase text-forest-700/80"
+            style={{
+              fontSize: 'clamp(8px, 1.6vw, 12px)',
+              letterSpacing: '0.42em',
+            }}
+          >
+            {w.inviteEyebrow}
+          </p>
+
+          <h1
+            className="font-serif font-light text-ink leading-[0.96] mt-4 sm:mt-6"
+            style={{ letterSpacing: '0.16em' }}
+          >
+            <span
+              className="block uppercase"
+              style={{ fontSize: 'clamp(2.4rem, 12vw, 6rem)' }}
+            >
+              SAVE
+            </span>
+            <span
+              className="block font-script text-champagne my-1 normal-case"
+              style={{ fontSize: 'clamp(1.6rem, 7vw, 3.6rem)', letterSpacing: 'normal' }}
+            >
+              the
+            </span>
+            <span
+              className="block uppercase"
+              style={{ fontSize: 'clamp(2.4rem, 12vw, 6rem)' }}
+            >
+              DATE
+            </span>
+          </h1>
+
+          <p
+            className="font-sans font-medium uppercase text-forest-800/80 mt-4 sm:mt-6"
+            style={{
+              fontSize: 'clamp(8px, 1.5vw, 12px)',
+              letterSpacing: '0.3em',
+            }}
+          >
+            for the wedding of
+          </p>
+
+          <div className="mt-5 sm:mt-7 w-full">
+            <Divider variant="gold" width="sm" />
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll cue — clickable button that smooth-scrolls to the next section */}
+      <button
+        type="button"
+        onClick={() => {
+          const next = document.getElementById('names-section');
+          if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }}
+        aria-label="Scroll to next section"
+        className="
+          group absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2
+          flex flex-col items-center
+          text-forest-700/50 hover:text-forest-800
+          font-medium hover:font-bold
+          transition-all duration-200 ease-out
+          hover:scale-110
+          cursor-pointer
+          py-2 px-4 -mx-4
+          focus-visible:outline focus-visible:outline-2 focus-visible:outline-champagne/60 focus-visible:outline-offset-2
+        "
+      >
+        <span
+          className="font-sans uppercase tracking-[0.32em] group-hover:tracking-[0.42em] transition-[letter-spacing] duration-300"
+          style={{ fontSize: 'clamp(7px, 1.1vw, 9px)' }}
+        >
+          Scroll
+        </span>
+        <svg
+          viewBox="0 0 24 24"
+          className="w-3 h-3 mt-1 group-hover:translate-y-0.5 transition-transform duration-300 animate-bounce-slow"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <path d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </Tile>
+  );
+}

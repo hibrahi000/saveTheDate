@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─── */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background: #FAF6E9;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ─── Custom utilities (Tailwind layer) ─── */
+@layer utilities {
+  .text-shimmer-gold {
+    background: linear-gradient(110deg,
+      #8B6914 0%,
+      #D4AF37 25%,
+      #F2DFA0 50%,
+      #D4AF37 75%,
+      #8B6914 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: goldShine 6s linear infinite;
+  }
+
+  .text-shimmer-green-gold {
+    background: linear-gradient(110deg,
+      #1E4020 0%,
+      #54944A 30%,
+      #D4AF37 50%,
+      #54944A 70%,
+      #1E4020 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: goldShine 7s linear infinite;
+  }
+
+  .glass-ivory {
+    background: rgba(250, 246, 233, 0.78);
+    backdrop-filter: blur(14px) saturate(1.05);
+    -webkit-backdrop-filter: blur(14px) saturate(1.05);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+  }
+
+  .glass-cream {
+    background: rgba(255, 252, 243, 0.82);
+    backdrop-filter: blur(16px) saturate(1.1);
+    -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    border: 1px solid rgba(30, 64, 32, 0.10);
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+  }
+
+  /* Ring shine sweep */
+  .ring-shine-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(255,255,255,0.6) 50%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    animation: ringShineSweep 4s ease-in-out infinite;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  @keyframes ringShineSweep {
+    0%   { background-position: -100% 0; opacity: 0; }
+    35%  { opacity: 0.85; }
+    65%  { opacity: 0.85; }
+    100% { background-position: 200% 0; opacity: 0; }
+  }
+}
+
+/* Section reveal on scroll (basic) */
+.reveal-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 1s cubic-bezier(0.4,0,0.2,1) both;
+  animation-delay: var(--reveal-delay, 0s);
+}
+@keyframes revealUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Background music never visible */
+audio { display: none; }
