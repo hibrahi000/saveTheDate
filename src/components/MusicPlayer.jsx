@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { musicStartedOn, toggleMute } from '../store/uiSlice';
+import { musicStartedOn, toggleMute,  } from '../store/uiSlice';
+import weddingBand2026 from '../../public/music/wedding_band_2026.mp3'
 
 /**
  * Plays /music/background.mp3 on first user interaction.
@@ -9,12 +10,12 @@ import { musicStartedOn, toggleMute } from '../store/uiSlice';
 export default function MusicPlayer() {
   const dispatch = useDispatch();
   const { musicStarted, musicMuted } = useSelector(s => s.ui);
-  const audioRef = useRef(null);
+  const audioRef = useRef(weddingBand2026);
 
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
-    a.volume = 0.32;
+    a.volume = 0.52;
 
     const start = () => {
       if (musicStarted) return;

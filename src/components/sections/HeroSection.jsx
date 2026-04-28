@@ -85,43 +85,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* Scroll cue — clickable button that smooth-scrolls to the next section */}
-      <button
-        type="button"
-        onClick={() => {
-          const next = document.getElementById('names-section');
-          if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }}
-        aria-label="Scroll to next section"
-        className="
-          group absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2
-          flex flex-col items-center
-          text-forest-700/50 hover:text-forest-800
-          font-medium hover:font-bold
-          transition-all duration-200 ease-out
-          hover:scale-110
-          cursor-pointer
-          py-2 px-4 -mx-4
-          focus-visible:outline focus-visible:outline-2 focus-visible:outline-champagne/60 focus-visible:outline-offset-2
-        "
-      >
-        <span
-          className="font-sans uppercase tracking-[0.32em] group-hover:tracking-[0.42em] transition-[letter-spacing] duration-300"
-          style={{ fontSize: 'clamp(7px, 1.1vw, 9px)' }}
-        >
-          Scroll
-        </span>
-        <svg
-          viewBox="0 0 24 24"
-          className="w-3 h-3 mt-1 group-hover:translate-y-0.5 transition-transform duration-300 animate-bounce-slow"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-        >
-          <path d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
     </Tile>
   );
 }

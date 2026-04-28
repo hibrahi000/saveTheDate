@@ -1,16 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  musicStarted: false,
-  musicMuted:   false,
+  musicStarted: true,
+  musicMuted: false,
 };
 
 const uiSlice = createSlice({
-  name: 'ui',
+  name: "ui",
   initialState,
   reducers: {
-    musicStartedOn(state)    { state.musicStarted = true; },
-    toggleMute(state)        { state.musicMuted = !state.musicMuted; },
+    musicStartedOn(state) {
+      state.musicStarted = true;
+    },
+    toggleMute(state) {
+      state.musicMuted = !state.musicMuted;
+    },
   },
 });
 
