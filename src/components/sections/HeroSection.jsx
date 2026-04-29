@@ -31,16 +31,17 @@ export default function HeroSection() {
       <BackdropPhoto mode="hero" src={w.heroBackdropSrc} />
 
       {/* Two-row stack: photo occupies the top 75%, type lives in the bottom 25% */}
-      <div className="absolute inset-0 grid grid-rows-[75%_25%] z-10">
+      <div className="absolute inset-0 grid grid-rows-[75%_25%] z-0">
         {/* Spacer row (photo lives behind it, no content) */}
         <div />
 
         {/* Typography row — over ivory dissolve */}
-        <div className="flex flex-col items-center justify-center px-5 sm:px-8 text-center">
+        <div className="flex flex-col items-center justify-end px-5 sm:px-8 text-center">
           <p
-            className="font-sans font-medium uppercase text-forest-700/80"
+            className="font-sans font-bold uppercase text-forest-800 text-center"
             style={{
-              fontSize: 'clamp(8px, 1.6vw, 12px)',
+              fontSize: 'clamp(18px, 1.8vw, 10px)',
+              marginBottom: '-10px',
               letterSpacing: '0.42em',
             }}
           >
@@ -70,16 +71,6 @@ export default function HeroSection() {
               DATE
             </span>
           </h1>
-
-          <p
-            className="font-sans font-medium uppercase text-forest-800/80 mt-4 sm:mt-6"
-            style={{
-              fontSize: 'clamp(8px, 1.5vw, 12px)',
-              letterSpacing: '0.3em',
-            }}
-          >
-            for the wedding of
-          </p>
 
           <div className="mt-5 sm:mt-7 w-full">
             <Divider variant="gold" width="sm" />

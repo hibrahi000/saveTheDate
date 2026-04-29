@@ -24,7 +24,7 @@ export default function UnionSection() {
         className="font-sans font-medium uppercase text-forest-700/70"
         style={{ fontSize: 'clamp(8px, 1.6vw, 12px)', letterSpacing: '0.42em' }}
       >
-        Two Becoming One
+        for the wedding of
       </p>
       <div className="mt-3 flex justify-center items-center gap-3">
         <SagebranchSprig direction="left" />
