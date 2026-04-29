@@ -79,6 +79,7 @@ export default {
         'sparkle':         'sparkle 3s ease-in-out infinite',
         'ring-shine':      'ringShine 5s ease-in-out infinite',
         'bounce-slow':     'bounceSlow 2.4s ease-in-out infinite',
+        'hint-bob':        'hintBob 1.8s ease-in-out infinite',
       },
       keyframes: {
         shimmer: {
@@ -112,6 +113,10 @@ export default {
         bounceSlow: {
           '0%, 100%': { transform: 'translate(-50%, 0)', opacity: '0.3' },
           '50%':      { transform: 'translate(-50%, 6px)', opacity: '0.7' },
+        },
+        hintBob: {
+          '0%, 100%': { transform: 'translateX(0)',   opacity: '0.92' },
+          '50%':      { transform: 'translateX(4px)', opacity: '1' },
         },
       },
       boxShadow: {

@@ -7,12 +7,20 @@ import BackdropPhoto from '../BackdropPhoto';
 /**
  * Editorial-cover hero — fully responsive.
  *
- * Layout:
- *  - Photo region : ~ top half  → empty chapel image dissolved into ivory
- *  - Type region  : ~ bottom half → "Save the Date" lockup
+ *   ┌────────────────────────┐
+ *   │                        │
+ *   │   chapel photo (75%)   │
+ *   │                        │
+ *   ├────────────────────────┤   ← dissolves into ivory
+ *   │  TOGETHER WITH …       │
+ *   │      SAVE              │
+ *   │       the              │
+ *   │      DATE              │
+ *   │   ─── ◆ ───            │
+ *   └────────────────────────┘
  *
  * Sized with 100svh (small viewport, accounts for mobile browser chrome) and
- * clamped both above and below so it looks balanced on phones, tablets, and laptops.
+ * clamped above + below so it looks balanced on phones, tablets, and laptops.
  */
 export default function HeroSection() {
   const w = useSelector(s => s.wedding);
@@ -24,24 +32,22 @@ export default function HeroSection() {
       className="
         -mt-12 sm:-mt-14 -mx-5 sm:-mx-8
         relative
-        h-[100svh] min-h-[560px] max-h-[920px]
+        h-[100svh] min-h-[600px] max-h-[920px]
       "
     >
-      {/* Empty-chapel photo backdrop */}
+      {/* Empty-chapel photo backdrop (top 75% of hero, dissolves to ivory) */}
       <BackdropPhoto mode="hero" src={w.heroBackdropSrc} />
 
-      {/* Two-row stack: photo occupies the top 75%, type lives in the bottom 25% */}
-      <div className="absolute inset-0 grid grid-rows-[75%_25%] z-0">
-        {/* Spacer row (photo lives behind it, no content) */}
-        <div />
+      {/* Photo occupies the top 75%, typography lives in the bottom 25% */}
+      <div className="absolute inset-0 grid grid-rows-[72%_28%] z-10">
+        <div /> {/* spacer for photo */}
 
-        {/* Typography row — over ivory dissolve */}
-        <div className="flex flex-col items-center justify-end px-5 sm:px-8 text-center">
+        {/* Typography row */}
+        <div className="flex flex-col items-center justify-end px-5 sm:px-8 pb-4 text-center">
           <p
-            className="font-sans font-bold uppercase text-forest-800 text-center"
+            className="font-sans font-semibold uppercase text-forest-800/80"
             style={{
-              fontSize: 'clamp(18px, 1.8vw, 10px)',
-              marginBottom: '-10px',
+              fontSize: 'clamp(9px, 1.6vw, 12px)',
               letterSpacing: '0.42em',
             }}
           >
@@ -49,30 +55,30 @@ export default function HeroSection() {
           </p>
 
           <h1
-            className="font-serif font-light text-ink leading-[0.96] mt-4 sm:mt-6"
+            className="font-serif font-light text-ink leading-[0.95] mt-3 sm:mt-4"
             style={{ letterSpacing: '0.16em' }}
           >
             <span
               className="block uppercase"
-              style={{ fontSize: 'clamp(2.4rem, 12vw, 6rem)' }}
+              style={{ fontSize: 'clamp(2.4rem, 11vw, 5.6rem)' }}
             >
               SAVE
             </span>
             <span
               className="block font-script text-champagne my-1 normal-case"
-              style={{ fontSize: 'clamp(1.6rem, 7vw, 3.6rem)', letterSpacing: 'normal' }}
+              style={{ fontSize: 'clamp(1.5rem, 6.5vw, 3.2rem)', letterSpacing: 'normal' }}
             >
               the
             </span>
             <span
               className="block uppercase"
-              style={{ fontSize: 'clamp(2.4rem, 12vw, 6rem)' }}
+              style={{ fontSize: 'clamp(2.4rem, 11vw, 5.6rem)' }}
             >
               DATE
             </span>
           </h1>
 
-          <div className="mt-5 sm:mt-7 w-full">
+          <div className="mt-4 sm:mt-5 w-full">
             <Divider variant="gold" width="sm" />
           </div>
         </div>

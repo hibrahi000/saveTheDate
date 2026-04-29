@@ -32,17 +32,26 @@ const initialState = {
   inviteEyebrow: "Together with their families",
 
   /**
-   * Proposal photo (cruise) — drop the file at /public/proposal.png
-   * and set this to the path to render the section. Set to null to hide the section.
+   * Proposal gallery — three photos fanned out below the ring like a keychain.
+   * Center photo is the "main" with the largest caption; outer two flank it
+   * at opposite tilts. Order: [left, center, right] from the viewer's perspective.
    */
+  proposalGallery: [
+    { src: "/proposal2.png", caption: "A million times yes", rotation: -10, scale: 0.86 },
+    { src: "/proposal.png",  caption: "The night he asked",  rotation: -2,  scale: 1.00 },
+    { src: "/proposal3.png", caption: "Sailing into forever", rotation:  9, scale: 0.86 },
+  ],
+  proposalSublabel: "Aboard a cruise · the moment that started forever",
+
+  /** Legacy single-photo (kept for backwards compat / fallback) */
   proposalPhoto: {
-    src: "/proposal.png", // e.g. '/proposal.png' once the file is added
+    src: "/proposal.png",
     caption: "The night he asked",
     sublabel: "Aboard a cruise · the moment that started forever",
-    rotation: -3, // tilt in degrees (Polaroid feel)
+    rotation: -3,
   },
 
-  /** New hero backdrop — empty chapel photo */
+  /** Hero backdrop — empty chapel photo */
   heroBackdropSrc: "/ashton_garden_backdrop.png",
 };
 

@@ -113,22 +113,21 @@ body {
   }
 }
 
-/* Section reveal on scroll — used by Tile via useInView */
+/* Section reveal on scroll — used by Tile via useInView.
+   Snappy 500ms transition so content arrives immediately when user scrolls.
+   Filter:blur removed (was causing laggy scroll). GPU-friendly transform only. */
 .card-out {
   opacity: 0;
-  transform: translateY(28px) scale(0.985);
-  filter: blur(2px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.7s ease-out;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 .card-in {
   opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.7s ease-out;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Legacy reveal-on-load — kept for the hero (which sets noFade) */
