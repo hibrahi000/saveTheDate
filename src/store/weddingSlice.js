@@ -60,12 +60,6 @@ const initialState = {
 
   /** Hero backdrop — empty chapel photo */
   heroBackdropSrc: "/ashton_garden_backdrop.png",
-
-  /**
-   * Public URL of this invitation (used by the QR code + share button).
-   * Update this once you've deployed (e.g. https://fhoenix-hashmat.vercel.app).
-   * Falls back to window.location.origin at runtime if left as default.
-   */
   siteUrl: "https://fhoenixandhash2027.xyz/",
 };
 const weddingSlice = createSlice({
