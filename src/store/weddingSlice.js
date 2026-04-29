@@ -37,24 +37,37 @@ const initialState = {
    * at opposite tilts. Order: [left, center, right] from the viewer's perspective.
    */
   proposalGallery: [
-    { src: "/proposal2.png", caption: "A million times yes", rotation: -10, scale: 0.86 },
-    { src: "/proposal.png",  caption: "The night he asked",  rotation: -2,  scale: 1.00 },
-    { src: "/proposal3.png", caption: "Sailing into forever", rotation:  9, scale: 0.86 },
+    {
+      src: "/proposal2.png",
+      caption: "A million times yes",
+      rotation: -10,
+      scale: 0.86,
+    },
+    {
+      src: "/proposal.png",
+      caption: "The night he asked",
+      rotation: -2,
+      scale: 1.0,
+    },
+    {
+      src: "/proposal3.png",
+      caption: "Sailing into forever",
+      rotation: 9,
+      scale: 0.86,
+    },
   ],
   proposalSublabel: "Aboard a cruise · the moment that started forever",
 
-  /** Legacy single-photo (kept for backwards compat / fallback) */
-  proposalPhoto: {
-    src: "/proposal.png",
-    caption: "The night he asked",
-    sublabel: "Aboard a cruise · the moment that started forever",
-    rotation: -3,
-  },
-
   /** Hero backdrop — empty chapel photo */
   heroBackdropSrc: "/ashton_garden_backdrop.png",
-};
 
+  /**
+   * Public URL of this invitation (used by the QR code + share button).
+   * Update this once you've deployed (e.g. https://fhoenix-hashmat.vercel.app).
+   * Falls back to window.location.origin at runtime if left as default.
+   */
+  siteUrl: "https://fhoenixandhash2027.xyz/",
+};
 const weddingSlice = createSlice({
   name: "wedding",
   initialState,

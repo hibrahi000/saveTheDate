@@ -6,9 +6,9 @@ import DateSection from './components/sections/DateSection';
 import VenueSection from './components/sections/VenueSection';
 import DetailsSection from './components/sections/DetailsSection';
 import CountdownSection from './components/sections/CountdownSection';
+import QRSection from './components/sections/QRSection';
 import RsvpSection from './components/sections/RsvpSection';
 import MusicPlayer from './components/MusicPlayer';
-// import ScrollControl from './components/ScrollControl';
 import SectionNavigator from './components/SectionNavigator';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -22,11 +22,12 @@ export default function App() {
       <SpeedInsights />
       <Page>
         <HeroSection />
-        <UnionSection />     {/* names + ring + proposal photo unified */}
+        <UnionSection />     {/* names + ring + proposal photos */}
         <DateSection />
         <VenueSection />
         <DetailsSection />   {/* adults only + black tie */}
         <CountdownSection />
+        <QRSection />        {/* clickable QR — scan or share */}
         <RsvpSection />
       </Page>
       <MusicPlayer />
