@@ -25,28 +25,28 @@ export default function DinnerTable({ mode = 'soft', className = '', children, s
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            objectPosition: 'center 32%',
-            // Dissolve photo into ivory in the lower half so typography sits on clean ground
+            objectPosition: 'center 38%',
+            // Photo covers ~75% of hero — opaque to 75%, then dissolves to ivory
             WebkitMaskImage:
-              'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0) 100%)',
+              'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.65) 88%, rgba(0,0,0,0) 100%)',
             maskImage:
-              'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0) 100%)',
+              'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.65) 88%, rgba(0,0,0,0) 100%)',
           }}
         />
-        {/* Soft ivory wash to keep the photo desaturated into the palette */}
+        {/* Soft ivory wash + a deeper forest-green wash near bottom for elegance */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(250,246,233,0.10) 0%, rgba(250,246,233,0.20) 45%, rgba(250,246,233,0.85) 78%, rgba(250,246,233,1) 100%)',
+              'linear-gradient(180deg, rgba(250,246,233,0.06) 0%, rgba(250,246,233,0.10) 50%, rgba(250,246,233,0.55) 82%, rgba(250,246,233,0.95) 95%, rgba(250,246,233,1) 100%)',
           }}
         />
-        {/* Champagne vignette for that printed-on-paper feel */}
+        {/* Forest-green vignette for editorial depth */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 35%, transparent 50%, rgba(170,140,90,0.18) 100%)',
+              'radial-gradient(ellipse at 50% 35%, transparent 55%, rgba(30,64,32,0.18) 100%)',
           }}
         />
         {children}

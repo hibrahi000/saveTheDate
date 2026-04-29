@@ -4,7 +4,8 @@ import Tile from '../Tile';
 import BackdropPhoto from '../BackdropPhoto';
 
 /**
- * Venue tile — frames the elegant Ashton Gardens reception photo (dinner table).
+ * Venue tile — frames the elegant reception photo. Venue NAME is intentionally
+ * not displayed; only the city/state is given.
  */
 export default function VenueSection() {
   const { venue } = useSelector(s => s.wedding);
@@ -12,35 +13,29 @@ export default function VenueSection() {
   return (
     <Tile delay={0.6} className="flex flex-col items-center text-center">
       {/* Framed reception photo */}
-      <div className="w-full max-w-[460px] aspect-[3/2] rounded-sm overflow-hidden shadow-tile-deep border border-champagne/30">
+      <div className="w-full max-w-[460px] aspect-[3/2] rounded-sm overflow-hidden shadow-tile-deep border border-forest/20">
         <BackdropPhoto mode="frame" src="/dinnerTable.png" className="w-full h-full" />
       </div>
 
       <p
-        className="mt-6 font-sans font-medium uppercase text-forest-800/70"
+        className="mt-6 font-sans font-medium uppercase text-forest-700/70"
         style={{ fontSize: 'clamp(8px, 1.5vw, 12px)', letterSpacing: '0.42em' }}
       >
-        will be held at
+        the celebration will be held in
       </p>
 
       <h3
-        className="mt-3 font-serif text-ink uppercase"
-        style={{ fontSize: 'clamp(1.4rem, 5.5vw, 2.4rem)', letterSpacing: '0.12em' }}
+        className="mt-3 font-serif text-forest uppercase"
+        style={{ fontSize: 'clamp(1.5rem, 6vw, 2.6rem)', letterSpacing: '0.12em' }}
       >
-        {venue.name}
+        {venue.city}
       </h3>
 
       <p
-        className="mt-2 font-elegant italic text-forest-700"
-        style={{ fontSize: 'clamp(0.95rem, 2.4vw, 1.2rem)' }}
+        className="mt-1 font-elegant italic text-forest-700"
+        style={{ fontSize: 'clamp(1rem, 2.6vw, 1.25rem)' }}
       >
-        {venue.line1}
-      </p>
-      <p
-        className="font-elegant italic text-forest-700"
-        style={{ fontSize: 'clamp(0.95rem, 2.4vw, 1.2rem)' }}
-      >
-        {venue.city}, {venue.state} {venue.zip}
+        {venue.state}
       </p>
     </Tile>
   );

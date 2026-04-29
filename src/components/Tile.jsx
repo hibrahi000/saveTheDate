@@ -1,7 +1,12 @@
 import React from 'react';
+import { useInView } from '../hooks/useInView';
 
 /**
  * Reusable elegant tile/section.
+ *
+ * Each tile:
+ *  • emits a [data-section] attribute (used by the SectionNavigator)
+ *  • fades in from translateY(28px) when it enters the viewport, like an app card
  *
  * Variants:
  *  - 'plain'    : transparent, no border (default)
@@ -25,13 +30,26 @@ export default function Tile({
   delay = 0,
   as: Tag = 'section',
   id,
+  // For the hero (or any full-bleed) you can disable the in-view fade
+  noFade = false,
   ...rest
 }) {
+  const [ref, inView] = useInView({ threshold: 0.12 });
+
   return (
     <Tag
+      ref={ref}
       id={id}
-      className={`relative reveal-on-load ${VARIANTS[variant] || ''} ${className}`}
-      style={{ '--reveal-delay': `${delay}s` }}
+      data-section
+      className={`
+        relative
+        ${VARIANTS[variant] || ''}
+        ${className}
+        ${noFade ? '' : (inView ? 'card-in' : 'card-out')}
+      `}
+      style={{
+        transitionDelay: noFade ? '0s' : `${delay}s`,
+      }}
       {...rest}
     >
       {children}

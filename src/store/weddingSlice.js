@@ -21,7 +21,7 @@ const initialState = {
     zip: "30518",
   },
   rsvp: {
-    email: "Fhoenix.Frager@gmail.com",
+    email: "hashmatibrahimi0711@gmail.com",
     subject: "Save the Date — Fhoenix & Hashmat · July 24, 2027",
     body: "Congratulations! We are so excited for you. Counting down the days. ❤",
     hashtag: "#FhoenixAndHashmat2027",

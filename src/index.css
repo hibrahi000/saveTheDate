@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 /* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+  /* Hide native scrollbar — we render our own pill-style ScrollControl on the right */
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* IE/Edge */
+}
+html::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
+
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -11,7 +19,12 @@ html, body, #root {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Montserrat', system-ui, sans-serif;
-  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling via momentum on iOS */
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -100,7 +113,25 @@ html, body, #root {
   }
 }
 
-/* Section reveal on scroll (basic) */
+/* Section reveal on scroll — used by Tile via useInView */
+.card-out {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(2px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s ease-out;
+}
+.card-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s ease-out;
+}
+
+/* Legacy reveal-on-load — kept for the hero (which sets noFade) */
 .reveal-on-load {
   opacity: 0;
   transform: translateY(20px);

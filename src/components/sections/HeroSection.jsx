@@ -20,6 +20,7 @@ export default function HeroSection() {
   return (
     <Tile
       delay={0.1}
+      noFade
       className="
         -mt-12 sm:-mt-14 -mx-5 sm:-mx-8
         relative
@@ -29,12 +30,12 @@ export default function HeroSection() {
       {/* Empty-chapel photo backdrop */}
       <BackdropPhoto mode="hero" src={w.heroBackdropSrc} />
 
-      {/* Two-row stack: type lives in the lower half, breathing room above + below */}
-      <div className="absolute inset-0 grid grid-rows-[55%_45%] z-10">
+      {/* Two-row stack: photo occupies the top 75%, type lives in the bottom 25% */}
+      <div className="absolute inset-0 grid grid-rows-[75%_25%] z-10">
         {/* Spacer row (photo lives behind it, no content) */}
         <div />
 
-        {/* Typography row */}
+        {/* Typography row — over ivory dissolve */}
         <div className="flex flex-col items-center justify-center px-5 sm:px-8 text-center">
           <p
             className="font-sans font-medium uppercase text-forest-700/80"
