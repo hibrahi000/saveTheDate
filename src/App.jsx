@@ -10,6 +10,7 @@ import RsvpSection from './components/sections/RsvpSection';
 import MusicPlayer from './components/MusicPlayer';
 // import ScrollControl from './components/ScrollControl';
 import SectionNavigator from './components/SectionNavigator';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 /**
  * Single-page invitation. Each section is its own tile component.
@@ -18,6 +19,7 @@ import SectionNavigator from './components/SectionNavigator';
 export default function App() {
   return (
     <>
+      <SpeedInsights />
       <Page>
         <HeroSection />
         <UnionSection />     {/* names + ring + proposal photo unified */}
