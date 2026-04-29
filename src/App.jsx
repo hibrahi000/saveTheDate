@@ -8,7 +8,8 @@ import DetailsSection from './components/sections/DetailsSection';
 import CountdownSection from './components/sections/CountdownSection';
 import RsvpSection from './components/sections/RsvpSection';
 import MusicPlayer from './components/MusicPlayer';
-import ScrollControl from './components/ScrollControl';
+// import ScrollControl from './components/ScrollControl';
+import SectionNavigator from './components/SectionNavigator';
 
 /**
  * Single-page invitation. Each section is its own tile component.
@@ -27,7 +28,7 @@ export default function App() {
         <RsvpSection />
       </Page>
       <MusicPlayer />
-      <ScrollControl />
+      <SectionNavigator />
     </>
   );
 }
