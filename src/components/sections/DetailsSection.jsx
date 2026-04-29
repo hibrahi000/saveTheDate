@@ -42,7 +42,7 @@ export default function DetailsSection() {
             className="mt-2 font-elegant italic text-ivory/70 leading-snug max-w-[200px] mx-auto"
             style={{ fontSize: 'clamp(0.78rem, 1.6vw, 0.95rem)' }}
           >
-            We kindly request an adults-only evening
+            We kindly request an 18+ only evening
           </p>
         </div>
 
