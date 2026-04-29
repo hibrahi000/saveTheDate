@@ -10,7 +10,7 @@ import RsvpSection from './components/sections/RsvpSection';
 import MusicPlayer from './components/MusicPlayer';
 // import ScrollControl from './components/ScrollControl';
 import SectionNavigator from './components/SectionNavigator';
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 /**
  * Single-page invitation. Each section is its own tile component.
